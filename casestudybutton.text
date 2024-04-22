@@ -1,0 +1,19 @@
+ [
+    "View All",
+    "B2B",
+    "Charity",
+    "Consumer",
+    "Education",
+    "Enterprise",
+    "FinTech",
+    "Health",
+    "IOT",
+    "The Core",
+    "Travel",
+  ],
+  [
+    {
+      mainText: ` Our case studies celebrated not just lines of codes, but the exciting impact our collaboration with our
+      partners has on  of teamwork and a relentless passion for success.`,
+    },
+  ],

@@ -1,0 +1,23 @@
+ {
+    id: 1,
+    heading: "Harnessing AI for Enhanced Customer Experiences",
+    p: "Discover how AI-driven solutions are revolutionizing customer experiences in the tech industry.",
+    text: "Explore the ways in which integrating AI technologies can streamline proce",
+    italic: "Leverage AI-powered chatbots to provide instant support and recommendations",
+    imageUrl: "https://i.ibb.co/H21r2VY/great-Software1.png",
+    isImageRight: true,
+    img: farazimg,
+    name: "Faraz Rasool",
+    post: "CEO",
+    detail:[
+      {
+        "heading": "Personalized Recommendations",
+        "text": "AI-powered recommendation ees."
+      },
+      {
+        "heading": "Virtual Assistants and Chatbots",
+        "text": "AI-drce."
+      },
+      
+    ]
+  },

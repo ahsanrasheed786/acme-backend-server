@@ -1,0 +1,81 @@
+const contents = [
+ 
+  [
+
+    {
+      "id": "1",
+      "backgroundImage": "https://thumbs.dreamstime.com/b/medicine-doctor-stethoscope-touching-medical-icons-network-medicine-doctor-stethoscope-touching-icons-medical-network-111489030.jpg?w=1400",
+      "moboImg": "https://i.ibb.co/G9s7TYx/doctor.png",
+      "heading": "Emotional Medicine",
+      "text": "Your Partner in simplifying and optimizing",
+      "path": "/about",
+      "bgColorfrom": "white",
+      "bgColorTo": "gray",
+      "category": "Health",
+      "logImg1": apple,
+      "logImg2": android,
+      "logImg3": react,
+      "detail": "Emotional Medicine app is designed to simplify and optimize healthcare services, providing accessible emotional support for users. Through innovative technology and compassionate care, we aim to improve the well-being of individuals and communities. Our platform offers a range of features to address various emotional health needs, including personalized treatment plans, virtual counseling sessions, and community support forums.",
+      screenScreenshort:[  
+        "https://i.ibb.co/YBMKYrM/doctor3.png",
+       "https://i.ibb.co/tqPjGbK/doctor4.png",
+     "https://i.ibb.co/HzCjTPL/doctor2.png",
+    ],
+      "appTestLink": "",
+      "webTestLink": "",
+      "isoTestLink": "",
+      "clientReview": [
+        {
+          "clientreview": "The build was completed very quickly. The Distance App Developers’ efforts resulted in impressive reviews and generated more users than expected. The work was completed efficiently and the project management was good. Their team was well-structured and highly engaging.",
+          "clientImg": "https://thedistance.co.uk/wp-content/uploads/2020/02/guy-300x300.jpeg",
+          "clientname": "Guy Wilcox"
+        }
+      ],
+      "Process": [
+        {
+          "theProblem": "Face Doctor aimed to enhance patis.",
+          "theSoluction": "The Distance implemented robust en adherence to healthcare data protection regulag patient trust.",
+          "theResult": "The Face Doctor platform successfully g healthcare professionals and patients alike, ed patient satisfaction.",
+        },
+        
+      ]
+    },
+   "id": "2",
+      "backgroundImage": "https://thumbs.dreamstime.com/b/medicine-doctor-stethoscope-touching-medical-icons-network-medicine-doctor-stethoscope-touching-icons-medical-network-111489030.jpg?w=1400",
+      "moboImg": "https://i.ibb.co/G9s7TYx/doctor.png",
+      "heading": "Emotional Medicine",
+      "text": "Your Partner in simplifying and optimizing",
+      "path": "/about",
+      "bgColorfrom": "white",
+      "bgColorTo": "gray",
+      "category": "Health",
+      "logImg1": apple,
+      "logImg2": android,
+      "logImg3": react,
+      "detail": "Emotional Medicine app is designed to simplify and optimize healthcare services, providing accessible emotional support for users. Through innovative technology and compassionate care, we aim to improve the well-being of individuals and communities. Our platform offers a range of features to address various emotional health needs, including personalized treatment plans, virtual counseling sessions, and community support forums.",
+      screenScreenshort:[  
+        "https://i.ibb.co/YBMKYrM/doctor3.png",
+       "https://i.ibb.co/tqPjGbK/doctor4.png",
+     "https://i.ibb.co/HzCjTPL/doctor2.png",
+    ],
+      "appTestLink": "",
+      "webTestLink": "",
+      "isoTestLink": "",
+      "clientReview": [
+        {
+          "clientreview": "The build was completed very quickly. The Distance App Developers’ efforts resulted in impressive reviews and generated more users than expected. The work was completed efficiently and the project management was good. Their team was well-structured and highly engaging.",
+          "clientImg": "https://thedistance.co.uk/wp-content/uploads/2020/02/guy-300x300.jpeg",
+          "clientname": "Guy Wilcox"
+        }
+      ],
+      "Process": [
+        {
+          "theProblem": "Face Doctor aimed to enhance patis.",
+          "theSoluction": "The Distance implemented robust en adherence to healthcare data protection regulag patient trust.",
+          "theResult": "The Face Doctor platform successfully g healthcare professionals and patients alike, ed patient satisfaction.",
+        },
+        
+      ]
+    },
+
+  ]
