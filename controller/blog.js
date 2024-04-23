@@ -16,6 +16,7 @@ const postmanid= req.user
 }
 
 
+
 const username= searchUser.username
 // const usernamepost=searchUser.post
 // const usernameimg=searchUser.img

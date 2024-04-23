@@ -9,6 +9,13 @@ const userSchema = new mongoose.Schema({
     post: { type: String, required: true },
     image: { type: String, required: true },
     isAdmin: { type: Boolean, default: false},
+    isSubAdmin: { type: Boolean, default: false},
+    attendance: [
+        {
+          onTime: { type: String, default: 0 },
+          offTime: { type: String, default: 0 }
+        }
+      ],
     JoiningDate: { type: Date, default: Date.now },
 });
 // userSchema.virtual('JoiningDate').get(function() {

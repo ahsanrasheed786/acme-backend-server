@@ -87,6 +87,7 @@ export const getUser = async (req, res) => {
     let user;
     try {
       user = await UserModel.findById(id);
+
       if (!user) {
         return res.status(404).json({
           success: false,
@@ -110,8 +111,10 @@ export const getUser = async (req, res) => {
 export const updateUser=async (req, res) => {
     try {
         const {id} = req.params;
-    const {name,username,phone, password,email,post,image,isAdmin} = req.body;
-    const user = await UserModel.findByIdAndUpdate(id, {name,username,phone, password,email,post,image,isAdmin}, {new: true});
+    let {name,username,phone, password,email,post,image,isAdmin, isSubAdmin} = req.body;
+
+    isAdmin? isSubAdmin= true : isSubAdmin = isSubAdmin
+    const user = await UserModel.findByIdAndUpdate(id, {name,username,phone, password,email,post,image,isAdmin,isSubAdmin}, {new: true});
     res.status(200).json({
         success: true,
         message: `${user.name} Updated`,
@@ -126,6 +129,10 @@ export const updateUser=async (req, res) => {
     }
     
 }
+
+
+
+
 
 export const deleteUser = async (req, res) => {
     const {id} = req.params;

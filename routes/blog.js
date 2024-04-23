@@ -5,7 +5,6 @@ import { auth, Access } from '../auth/auth.js';
 
 
 
-
 blogRouter.post('/createblog', auth, Access, createBlog);
 blogRouter.get('/getallblogs', getAllBlog);
 blogRouter.get('/getblog/:id', getBlog);
