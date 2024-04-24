@@ -51,7 +51,16 @@ res.status(201).json({
 
 export const getAllBlog = async (req, res) => {
     try {
-        const blog = await BlogModel.find();
+        const blog = await BlogModel.find().select('imageUrl heading p img name post');
+        console.log(blog)
+
+    if(!blog){
+        return res.status(404).json({
+            success: false,
+            message: 'Failed To Load Blog',
+        });
+    }
+
         res.status(200).json(blog)
         
     } catch (error) {
@@ -74,7 +83,11 @@ export const getBlog = async (req, res) => {
                 message: 'blog not found',
             });
         }
-        res.status(200).json(blog)
+        res.status(200).json({
+            success: true,
+            message: 'blog found',
+            blog
+        })
         
     } catch (error) {
         res.status(500).json({
@@ -117,7 +130,7 @@ export const deleteBlog = async (req, res) => {
         if (!found) {
             return res.status(404).json({
                 success: false,
-                message: 'blog not found',
+                message: 'Blog Does Not Exist',
             });
         }
         res.status(200).json({

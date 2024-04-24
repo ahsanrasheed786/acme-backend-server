@@ -1,49 +1,51 @@
 import {UserModel} from '../models/user.js';
 import { generateAccessToken }  from '../feature/gernatingToken.js';
 export const  login = async(req, res) => {
-const {username, password} = req.body;
-
-try {
-    const userfound = await UserModel.findOne({username});
-    if(!userfound){
-       
+    const {username, password} = req.body;
+    
+    try {
+        const userfound = await UserModel.findOne({username});
+        if(!userfound){
             return res.status(401).json({
                 success: false,
                 message: 'User Not Found',
             });
         }
-    if(userfound.password !== password){
-        
+        if(userfound.password !== password){
             return res.status(401).json({
                 success: false,
                 message: 'Wrong Password',
             });
         }
-   
+    
         const  token = await generateAccessToken(userfound.username , userfound._id);
-
-        res.status(200) 
-         .cookie("token" ,token, {
-                maxAge: 1800000, 
-                // httpOnly: true, 
-                // secure: true, 
-                // sameSite: 'strict', 
-            }).json({
-            success: true,
-            message: `Welcome Back ${userfound.username}`,
-            // token
-            // userfound
-        });
-  
+        if(!token){
+            return res.status(401).json({
+                success: false,
+                message: 'Something Went Wrong',
+            });
+        }
     
-} catch (error) {
-    res.status(500).json({
-        success: false,
-        message: 'something went wrong',
-        error: error.message,
-    })
-    
-}}
+        res.status(200)
+            .cookie("token" ,token, {
+                maxAge: 1800000,
+                httpOnly: true,
+                secure: false,
+                sameSite: 'strict',
+            })
+            .json({
+                success: true,
+                message: `Welcome Back ${userfound.username}`,
+                // token
+                // userfound
+            });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'something went wrong',
+            error: error.message,
+        })
+    }}
 
 export const signup = async (req, res) => {
    try {
