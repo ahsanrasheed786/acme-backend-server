@@ -1,20 +1,5 @@
 import mongoose from 'mongoose';
-// Schema for client reviews
-// const clientReviewSchema = new Schema({
-//   clientreview: { type: String, required: true },
-//   clientImg: { type: String, required: true },
-//   clientname: { type: String, required: true }
-// });
 
-// Schema for process
-// const processSchema = new Schema({
-//   theProblem: { type: String, required: true },
-//   theSoluction: { type: String, required: true },
-//   theResult: { type: String, required: true }
-// });
-
-// Schema for contents
-// const abc = mongoose.Schema
 
 const contentSchema = new mongoose.Schema({
 //   id: { type: String, required: true },
