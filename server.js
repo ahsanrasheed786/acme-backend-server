@@ -8,6 +8,7 @@ import blogRouter from "./routes/blog.js";
 
 import cookieParser from "cookie-parser";
 import caseStudyRouter from "./routes/caseStudy.js";
+import attendanceRouter from "./routes/attendance.js";
 // import morgan from "morgan";
 dotenv.config();
 const app = express();
@@ -27,7 +28,7 @@ app.use("/api/user",router)
 app.use("/api/contactus",contactRouter)
 app.use("/api/blog",blogRouter)
 app.use("/api/casestudy",caseStudyRouter)
-
+app.use("/api/",attendanceRouter)
 
 // MongoDB Connection
 const mongoURL = process.env.MONGOURL ;
