@@ -30,19 +30,21 @@ try {
 
         res.status(200) 
          .cookie("token" ,token, {
-                maxAge: 1800000, 
                 httpOnly: true, 
-                sameSite: process.env.NODE_ENV === 'Development' ? "lax" : 'none', 
-                secure: process.env.NODE_ENV === 'Development' ? false : true, 
-                // sameSite: 'strict', 
-                
+                maxAge: 15 * 60 * 1000, 
+                // sameSite: process.env.NODE_ENV ==="Development" ? "lax" : 'none',
+                 sameSite: "none",  
+                 secure:  true, 
+                //  secure: process.env.NODE_ENV === "Development" ? false : true,                 
+                               
             }).json({
             success: true,
             message: `Welcome Back ${userfound.username}`,
             // token
             // userfound
         });
-  
+        const xx=process.env.NODE_ENV ==="Development" ? "lax" : 'none'
+  console.log(xx)
     
 } catch (error) {
     res.status(500).json({
