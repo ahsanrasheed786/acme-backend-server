@@ -17,12 +17,11 @@ const postmanid= req.user
 
 
 
-const username= searchUser.username
+const username= searchUser.name
 const usernamepost=searchUser.post
-const usernameimg=searchUser.img
-
+const usernameimg=searchUser.image
 // name=username
-console.log(username)
+// console.log(username)
 
     try {
         const blog =await BlogModel.create({id,  heading, p,text,italic,imageUrl,isImageRight,img:usernameimg,name:username,post:usernamepost,detail});
