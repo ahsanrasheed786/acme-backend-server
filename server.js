@@ -42,6 +42,7 @@ const DbName=process.env.DATABASE
             console.error('Error connecting to MongoDB:', error);
         }
     }
+    
     connectToMongoDB(mongoURL,DbName);
 // Starting the server
 const port = process.env.PORT || 5000;
