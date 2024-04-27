@@ -32,14 +32,14 @@ try {
          .cookie("token" ,token, {
                 httpOnly: true, 
                 maxAge: 15 * 60 * 1000, 
-                // sameSite: process.env.NODE_ENV ==="Development" ? "lax" : 'none',
-                 sameSite: "none",  
-                 secure:  true, 
-                //  secure: process.env.NODE_ENV === "Development" ? false : true,                 
+                sameSite: process.env.NODE_ENV ==="Development" ? "lax" : 'none',
+                //  sameSite: "none",  
+                //  secure:  true, 
+                 secure: process.env.NODE_ENV === "Development" ? false : true,                 
                                
             }).json({
             success: true,
-            message: `Welcome Back ${userfound.username}`,
+            message: `Welcome Back ${userfound.name}`,
             // token
             // userfound
         });

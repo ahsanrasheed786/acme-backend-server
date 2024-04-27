@@ -1,6 +1,6 @@
 import express from 'express';
 import { login ,signup ,logout ,getallUser , updateUser ,deleteUser, getUser} from '../controller/user.js';
-import { auth, Access } from '../auth/auth.js';
+import { auth, adminAccess } from '../auth/auth.js';
 
 
 const router = express.Router();

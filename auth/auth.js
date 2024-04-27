@@ -24,11 +24,36 @@ export const auth = (req, res, next) => {
     }
 }
 
-export const Access = async(req, res, next) => {
+
+// this will filter if admin is on then he can do this only
+export const adminAccess = async(req, res, next) => {
 
     const user = req.user
 const userfound = await UserModel.findById(user._id);
     if (!userfound.isAdmin) {
+        return res.status(401).json({
+            success: false,
+            message: 'You Do Not Have Access To Write To This Page',
+            // userfound
+        }); 
+    } 
+    try {
+        next();
+    }
+    catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'something went wrong',
+            error: error.message,
+        });
+    }
+}
+
+export const subAdminAccess = async(req, res, next) => {
+
+    const user = req.user
+const userfound = await UserModel.findById(user._id);
+    if (!userfound.isAdmin || isSubAdmin) {
         return res.status(401).json({
             success: false,
             message: 'You Do Not Have Access To Write To This Page',
