@@ -17,7 +17,8 @@ const app = express();
 //     credentials: true 
 // }));
 app.use(cors({
-    origin: process.env.FRONTEND_URL, 
+    origin: 'http://localhost:5173', 
+    // origin: process.env.FRONTEND_URL, 
     methods: ['GET', 'POST', 'PATCH','PUT', 'DELETE'],
     credentials: true 
 }));
@@ -42,7 +43,7 @@ const DbName=process.env.DATABASE
             console.error('Error connecting to MongoDB:', error);
         }
     }
-    
+
     connectToMongoDB(mongoURL,DbName);
 // Starting the server
 const port = process.env.PORT || 5000;
