@@ -18,14 +18,14 @@ const postmanid= req.user
 
 
 const username= searchUser.username
-// const usernamepost=searchUser.post
-// const usernameimg=searchUser.img
+const usernamepost=searchUser.post
+const usernameimg=searchUser.img
 
 // name=username
 console.log(username)
 
     try {
-        const blog =await BlogModel.create({id,  heading, p,text,italic,imageUrl,isImageRight,img,name:username,post,detail});
+        const blog =await BlogModel.create({id,  heading, p,text,italic,imageUrl,isImageRight,img:usernameimg,name:username,post:usernamepost,detail});
 if(!blog){
     res.status(401).json({
         success: false,
