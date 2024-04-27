@@ -5,7 +5,6 @@ import dotenv from "dotenv";
 import router from "./routes/user.js";
 import contactRouter from "./routes/contactUs.js";
 import blogRouter from "./routes/blog.js";
-
 import cookieParser from "cookie-parser";
 import caseStudyRouter from "./routes/caseStudy.js";
 import attendanceRouter from "./routes/attendance.js";
@@ -13,10 +12,13 @@ import attendanceRouter from "./routes/attendance.js";
 dotenv.config();
 const app = express();
 
-// Middleware
-// app.use(cors());
+// app.use(cors({
+//     origin: 'http://localhost:5173', 
+//     credentials: true 
+// }));
 app.use(cors({
-    origin: 'http://localhost:5173', 
+    origin: process.env.FRONTEND_URL, 
+    methods: ['GET', 'POST', 'PATCH','PUT', 'DELETE'],
     credentials: true 
 }));
 app.use(express.json());
@@ -30,13 +32,18 @@ app.use("/api/blog",blogRouter)
 app.use("/api/casestudy",caseStudyRouter)
 app.use("/api/",attendanceRouter)
 
-// MongoDB Connection
 const mongoURL = process.env.MONGOURL ;
-// { useNewUrlParser: true, useUnifiedTopology: true }
-mongoose.connect(mongoURL)
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error('MongoDB connection error:', err));
-
+const DbName=process.env.DATABASE
+    async function connectToMongoDB(url,dbName) {
+        try {
+            const client = await mongoose.connect(url, {dbName });
+            console.log(`Connected to MongoDB database: ${client.connection.db.databaseName} claster-Name: ${client.connection.host}`);
+        } catch (error) {
+            console.error('Error connecting to MongoDB:', error);
+        }
+    }
+    connectToMongoDB(mongoURL,DbName);
 // Starting the server
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(port, () => console.log(`Server is running on port ${port} in ${process.env.NODE_ENV} mode.`));
+

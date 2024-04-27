@@ -32,8 +32,10 @@ try {
          .cookie("token" ,token, {
                 maxAge: 1800000, 
                 httpOnly: true, 
-                secure: true, 
-                sameSite: 'strict', 
+                sameSite: process.env.NODE_ENV === 'Development' ? "lax" : 'none', 
+                secure: process.env.NODE_ENV === 'Development' ? false : true, 
+                // sameSite: 'strict', 
+                
             }).json({
             success: true,
             message: `Welcome Back ${userfound.username}`,
