@@ -127,7 +127,7 @@ export const updateCaseStudy = async (req, res)=> {
 
   export const getCaseStudy = async (req, res) => {
     try {
-      const content = await CasestudyContent.find();
+      const content = await CasestudyContent.find().select('backgroundImage heading text _id');
       res.json(content);
     } catch (err) {
       res.status(500).json({ message: err.message });
@@ -170,21 +170,3 @@ export const updateCaseStudy = async (req, res)=> {
         error: error.message,
       })}
   }
-
-
-// // Middleware function to get a specific content by ID
-// async function getContent(req, res, next) {
-//   let content;
-//   try {
-//     content = await Content.findById(req.params.id);
-//     if (content == null) {
-//       return res.status(404).json({ message: 'Content not found' });
-//     }
-//   } catch (err) {
-//     return res.status(500).json({ message: err.message });
-//   }
-//   res.content = content;
-//   next();
-// }
-
-// module.exports = router;

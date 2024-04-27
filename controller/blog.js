@@ -3,7 +3,7 @@ import {UserModel} from '../models/user.js';
 
 
 export const createBlog = async (req, res) => {
-    const {id,  heading, p,text,italic,imageUrl,isImageRight,img,name,post,detail} = req.body;
+    const {id,  heading, p,text,italic,imageUrl,isImageRight,detail} = req.body;
 const postmanid= req.user
     // console.log(req.user)
 
@@ -20,8 +20,7 @@ const postmanid= req.user
 const username= searchUser.name
 const usernamepost=searchUser.post
 const usernameimg=searchUser.image
-// name=username
-// console.log(username)
+
 
     try {
         const blog =await BlogModel.create({id,  heading, p,text,italic,imageUrl,isImageRight,img:usernameimg,name:username,post:usernamepost,detail});
