@@ -89,7 +89,7 @@ export const getallUser = async (req, res) => {
      const alluser = await UserModel.find();
     //  console.log(req.user);
     
-     res.status(200).json(alluser);
+     res.status(200).json(alluser );
 }
 
 export const getUser = async (req, res) => {

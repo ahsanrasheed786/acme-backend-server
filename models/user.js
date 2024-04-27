@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     image: { type: String, required: true },
     isAdmin: { type: Boolean, default: false},
     isSubAdmin: { type: Boolean, default: false},
+    isEmployee: { type: Boolean, default: true},
     attendance: {type:[],default:[]},
     JoiningDate: { type: Date, default: Date.now },
 });

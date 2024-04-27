@@ -1,6 +1,6 @@
 import express from 'express';
 import { login ,signup ,logout ,getallUser , updateUser ,deleteUser, getUser} from '../controller/user.js';
-import { auth, adminAccess } from '../auth/auth.js';
+import { auth, adminAccess, subAdminAccess, employeeAccess } from '../auth/auth.js';
 
 
 const router = express.Router();
@@ -9,24 +9,24 @@ const router = express.Router();
 router.post('/login',login );
 
 // http://localhost:8000/api/user/login
-router.post('/register', signup );
+router.post('/register',auth, adminAccess, signup );
 
 // http://localhost:8000/api/user/logout
-router.get('/logout', logout );
+router.get('/logout',auth, logout );
 
 
 
-router.get('/alluser' ,  getallUser );
-router.get('/getuser/:id' ,  getUser);
+router.get('/alluser' , auth, getallUser );
+router.get('/getuser/:id' , auth, getUser);
 
 
 // auth, Access,
 // auth, Access,
 
-router.patch('/updateUser/:id' , updateUser);  
+router.patch('/updateUser/:id' ,auth,adminAccess , updateUser);  
 // router.post('/attendance/:id' ,  markAttendance); 
 
-router.delete('/deleteUser/:id', deleteUser);  
+router.delete('/deleteUser/:id',auth, adminAccess ,deleteUser);  
 
 
 
