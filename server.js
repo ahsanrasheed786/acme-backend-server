@@ -31,7 +31,8 @@ app.use("/api/user",router)
 app.use("/api/contactus",contactRouter)
 app.use("/api/blog",blogRouter)
 app.use("/api/casestudy",caseStudyRouter)
-app.use("/api/",attendanceRouter)
+app.use("/api",attendanceRouter)
+
 
 const mongoURL = process.env.MONGOURL ;
 const DbName=process.env.DATABASE

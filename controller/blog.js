@@ -50,7 +50,7 @@ res.status(201).json({
 export const getAllBlog = async (req, res) => {
     try {
         const blog = await BlogModel.find().select('imageUrl heading p img name post');
-        // console.log(blog)
+        
 
     if(!blog){
         return res.status(404).json({

@@ -8,7 +8,14 @@ const attendanceSchema = new mongoose.Schema({
     userName: { type: String,  },
     user_Id: { type: String, },
 
-    
 })
 
 export const  attendanceModel = mongoose.model('Attendance', attendanceSchema);
+
+
+const firstAttendanceSchema = new mongoose.Schema({
+    checkInTime: { type: String, default: 0 },
+    userName: { type: String,  },
+})
+
+export const  firstAttendanceModel = mongoose.model('FirstAttendance', firstAttendanceSchema);

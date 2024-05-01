@@ -1,18 +1,16 @@
 
-import { attendanceModel } from "../models/attendance.js";
+import { attendanceModel, firstAttendanceModel } from "../models/attendance.js";
 import {UserModel} from '../models/user.js';
 
 
   export const attendance = async (req, res) => {
     const {checkInTime, checkOutTime, officeTime, currentDay, currentDate} = req.body;    
     const userId = await req.user._id
-    // console.log(userId)
-const user =await UserModel.findById(userId);
-const userName=user.name
-const user_Id=user._id
+       const user =await UserModel.findById(userId);
+        const userName=user.name
+       const user_Id=user._id
     try {
         const attendance = await attendanceModel.create({checkInTime, checkOutTime, officeTime, currentDay, currentDate,userName,user_Id});
-    console.log(req.body);
     res.status(200).json({
         success: true,
         message: 'attendance created',
@@ -91,6 +89,8 @@ const user_Id=user._id
 export const updateAttendanceAndDelete = async (req, res) => {
     const {checkInTime, checkOutTime, officeTime, currentDay, currentDate} = req.body;
     const {id} = req.params;
+    console.log(id)
+
     try {
         const foundedAndUpdated =await attendanceModel.findByIdAndUpdate( id ,{checkInTime, checkOutTime, officeTime, currentDay, currentDate}, {new: true});
         if (!foundedAndUpdated) {
@@ -99,10 +99,7 @@ export const updateAttendanceAndDelete = async (req, res) => {
                 message: 'attendance not found',
             });
         }
-        // if foundedAndUpdated
-            const user =await UserModel.findById('662b99225d50b7ef6b531958'
-                // foundedAndUpdated.user_Id
-                );
+        const user =await UserModel.findById(foundedAndUpdated.user_Id);
             user.attendance.push(foundedAndUpdated)
             user.save()
 
@@ -114,9 +111,10 @@ export const updateAttendanceAndDelete = async (req, res) => {
             deleted
         });
     } catch (error) {
+        // console.log(error)
         res.status(500).json({
             success: false,
-            message: 'something went wrong',
+            message: 'something went wrong  thats catch of updateAttendanceAndDelete',
             error: error.message,   });
 }}
 
@@ -142,3 +140,39 @@ export const updateAttendanceAndDelete = async (req, res) => {
                 error: error.message,
             })          
             }}
+
+
+  export const firstAttendance = async (req, res) => {
+                const {checkInTime} = req.body;    
+                const userId = await req.user._id
+                   const user =await UserModel.findById(userId);
+                    const userName=user.name
+                try {
+                    const attendance = await firstAttendanceModel.create({checkInTime,userName:userName});
+                res.status(200).json({
+                    success: true,
+                    message: 'attendance created',
+                })  
+                } catch (error) {
+                    res.status( 500).json({
+                        success: false,
+                        message: 'something went wrong',
+                    })
+                }
+ } 
+
+
+    export const getAllFirstAttendance = async (req, res) => {
+                try {
+                    const firstAttendance = await firstAttendanceModel.find();
+                res.status(200).json({
+                    success: true,
+                    firstAttendance
+                })  
+                } catch (error) {
+                    res.status( 500).json({
+                        success: false,
+                        message: 'something went wrong',
+                    })
+                }
+   }     

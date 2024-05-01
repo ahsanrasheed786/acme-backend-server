@@ -6,10 +6,12 @@ import { auth, adminAccess, subAdminAccess ,employeeAccess } from '../auth/auth.
 
 
 blogRouter.post('/createblog', auth, subAdminAccess, createBlog);
-blogRouter.get('/getallblogs',auth, employeeAccess, getAllBlog);
+// auth, employeeAccess, getAllBlog
+blogRouter.get('/getallblogs' ,auth, getAllBlog);
 blogRouter.get('/getblog/:id',auth,employeeAccess, getBlog);
 
 blogRouter.patch('/updateblog/:id',auth,adminAccess, updateBlog).delete('/deleteblog/:id',auth,adminAccess, deleteBlog);
+
 
 
 

@@ -1,5 +1,5 @@
 import express from 'express';
-import { login ,signup ,logout ,getallUser , updateUser ,deleteUser, getUser} from '../controller/user.js';
+import { login ,signup ,logout ,getallUser , updateUser ,deleteUser, getUser, getMyProfile} from '../controller/user.js';
 import { auth, adminAccess, subAdminAccess, employeeAccess } from '../auth/auth.js';
 
 
@@ -18,6 +18,8 @@ router.get('/logout',auth, logout );
 
 router.get('/alluser' , auth, getallUser );
 router.get('/getuser/:id' , auth, getUser);
+router.get('/getmyprofile' , auth, getMyProfile);
+
 
 
 // auth, Access,

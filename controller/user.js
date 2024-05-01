@@ -43,8 +43,6 @@ try {
             // token
             // userfound
         });
-        const xx=process.env.NODE_ENV ==="Development" ? "lax" : 'none'
-  console.log(xx)
     
 } catch (error) {
     res.status(500).json({
@@ -96,7 +94,7 @@ export const getUser = async (req, res) => {
     const { id } = req.params;
     let user;
     try {
-      user = await UserModel.findById(id);
+     let user = await UserModel.findById(id);
 
       if (!user) {
         return res.status(404).json({
@@ -117,6 +115,31 @@ export const getUser = async (req, res) => {
       });
     }
   };
+  export const getMyProfile = async (req, res) => {
+   let { _id } = req.user;
+    try {
+     let  user = await UserModel.findById(_id);
+
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: 'user not found',
+        });
+      }
+      return res.status(200).json({
+        success: true,
+        message: 'user found',
+        user,
+      })
+    } catch (e) {
+      return res.status(500).json({
+        success: false,
+        message: 'User Not Found',
+        
+      });
+    }
+  };
+
 
 export const updateUser=async (req, res) => {
     try {

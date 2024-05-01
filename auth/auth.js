@@ -5,16 +5,12 @@ export const auth = (req, res, next) => {
     if (!req.cookies.token) {
         return res.status(401).json({
             success: false,
-            message: 'unauthorized access',
+            message: 'Please Login First Thats Auth MiddleWare',
         });
     }
     try {
         const decoded = jwt.verify(req.cookies.token, process.env.TOKEN_SECRET);
-        // console.log(decoded);
         req.user = decoded; 
-        // const user=;
-
-        
         next(); 
     } catch (error) {
         return res.status(401).json({
